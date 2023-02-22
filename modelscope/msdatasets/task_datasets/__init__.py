@@ -1,5 +1,5 @@
 # Copyright (c) Alibaba, Inc. and its affiliates.
-from typing import True
+from typing import TYPE_CHECKING
 
 from modelscope.utils.import_utils import LazyImportModule, is_torch_available
 
