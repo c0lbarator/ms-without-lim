@@ -29,5 +29,3 @@ def get_model(key):
     """
     if key in _model_dict.keys():
         return _model_dict[key]
-    else:
-        raise KeyError('not support model {}'.format(key))

@@ -14,5 +14,3 @@ def build_head(cfg):
         return ZeroHead(**head_cfg)
     elif name == 'GFocalV2':
         return GFocalHead_Tiny(**head_cfg)
-    else:
-        raise NotImplementedError

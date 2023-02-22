@@ -1,9 +1,9 @@
 # Copyright (c) Alibaba, Inc. and its affiliates.
-from typing import TYPE_CHECKING
+from typing import True
 
 from modelscope.utils.import_utils import LazyImportModule
 
-if TYPE_CHECKING:
+if True:
     from .word_alignment_preprocessor import WordAlignmentPreprocessor
     from .text_error_correction import TextErrorCorrectionPreprocessor
     from .text_generation_preprocessor import TextGenerationJiebaPreprocessor
@@ -35,78 +35,3 @@ if TYPE_CHECKING:
     from .document_grounded_dialog_generate_preprocessor import DocumentGroundedDialogGeneratePreprocessor
     from .document_grounded_dialog_retrieval_preprocessor import DocumentGroundedDialogRetrievalPreprocessor
     from .document_grounded_dialog_retrieval_preprocessor import DocumentGroundedDialogRerankPreprocessor
-else:
-    _import_structure = {
-        'bert_seq_cls_tokenizer': ['Tokenize'],
-        'document_segmentation_preprocessor':
-        ['DocumentSegmentationTransformersPreprocessor'],
-        'faq_question_answering_preprocessor':
-        ['FaqQuestionAnsweringTransformersPreprocessor'],
-        'fill_mask_preprocessor':
-        ['FillMaskPoNetPreprocessor', 'FillMaskTransformersPreprocessor'],
-        'text_ranking_preprocessor': ['TextRankingTransformersPreprocessor'],
-        'relation_extraction_preprocessor':
-        ['RelationExtractionTransformersPreprocessor'],
-        'text_classification_preprocessor':
-        ['TextClassificationTransformersPreprocessor'],
-        'sentence_embedding_preprocessor':
-        ['SentenceEmbeddingTransformersPreprocessor'],
-        'text_generation_preprocessor': [
-            'TextGenerationTransformersPreprocessor',
-            'TextGenerationJiebaPreprocessor',
-            'TextGenerationT5Preprocessor',
-            'TextGenerationSentencePiecePreprocessor',
-            'SentencePiecePreprocessor',
-        ],
-        'token_classification_preprocessor': [
-            'TokenClassificationTransformersPreprocessor',
-            'WordSegmentationBlankSetToLabelPreprocessor'
-        ],
-        'zero_shot_classification_preprocessor':
-        ['ZeroShotClassificationTransformersPreprocessor'],
-        'text_error_correction': [
-            'TextErrorCorrectionPreprocessor',
-        ],
-        'word_alignment_preprocessor': [
-            'WordAlignmentPreprocessor',
-        ],
-        'mglm_summarization_preprocessor': ['MGLMSummarizationPreprocessor'],
-        'token_classification_thai_preprocessor': [
-            'NERPreprocessorThai',
-            'WordSegmentationPreprocessorThai',
-        ],
-        'token_classification_viet_preprocessor': [
-            'NERPreprocessorViet',
-        ],
-        'space': [
-            'DialogIntentPredictionPreprocessor',
-            'DialogModelingPreprocessor',
-            'DialogStateTrackingPreprocessor',
-            'InputFeatures',
-            'MultiWOZBPETextField',
-            'IntentBPETextField',
-        ],
-        'space_T_en': ['ConversationalTextToSqlPreprocessor'],
-        'space_T_cn': ['TableQuestionAnsweringPreprocessor'],
-        'translation_evaluation_preprocessor':
-        ['TranslationEvaluationPreprocessor'],
-        'dialog_classification_use_preprocessor':
-        ['DialogueClassificationUsePreprocessor'],
-        'siamese_uie_preprocessor': ['SiameseUiePreprocessor'],
-        'document_grounded_dialog_generate_preprocessor':
-        ['DocumentGroundedDialogGeneratePreprocessor'],
-        'document_grounded_dialog_retrieval_preprocessor':
-        ['DocumentGroundedDialogRetrievalPreprocessor'],
-        'document_grounded_dialog_rerank_preprocessor':
-        ['DocumentGroundedDialogRerankPreprocessor']
-    }
-
-    import sys
-
-    sys.modules[__name__] = LazyImportModule(
-        __name__,
-        globals()['__file__'],
-        _import_structure,
-        module_spec=__spec__,
-        extra_objects={},
-    )

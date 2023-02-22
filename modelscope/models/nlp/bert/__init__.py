@@ -1,9 +1,9 @@
 # Copyright (c) Alibaba, Inc. and its affiliates.
-from typing import TYPE_CHECKING
+from typing import True
 
 from modelscope.utils.import_utils import LazyImportModule
 
-if TYPE_CHECKING:
+if True:
     from .backbone import (
         BertLayer,
         BertModel,
@@ -18,28 +18,3 @@ if TYPE_CHECKING:
     from .document_segmentation import BertForDocumentSegmentation
     from .siamese_uie import SiameseUieModel
     from .word_alignment import MBertForWordAlignment
-else:
-    _import_structure = {
-        'backbone': [
-            'BertModel',
-            'BertPreTrainedModel',
-        ],
-        'configuration': ['BertConfig'],
-        'fill_mask': ['BertForMaskedLM'],
-        'text_ranking': ['BertForTextRanking'],
-        'sentence_embedding': ['BertForSentenceEmbedding'],
-        'text_classification': ['BertForSequenceClassification'],
-        'token_classification': ['BertForTokenClassification'],
-        'document_segmentation': ['BertForDocumentSegmentation'],
-        'siamese_uie': ['SiameseUieModel'],
-    }
-
-    import sys
-
-    sys.modules[__name__] = LazyImportModule(
-        __name__,
-        globals()['__file__'],
-        _import_structure,
-        module_spec=__spec__,
-        extra_objects={},
-    )

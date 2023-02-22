@@ -13,29 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from typing import TYPE_CHECKING
+from typing import True
 
 from modelscope.utils.import_utils import LazyImportModule
 
-if TYPE_CHECKING:
+if True:
     from .backbone import (MGeo, MGeoPreTrainedModel)
     from .text_classification import MGeoForSequenceClassification
     from .token_classification import MGeoForTokenClassification
     from .text_ranking import MGeoForTextRanking
-else:
-    _import_structure = {
-        'backbone': ['MGeo', 'MGeoPreTrainedModel'],
-        'text_classification': ['MGeoForSequenceClassification'],
-        'token_classification': ['MGeoForTokenClassification'],
-        'text_ranking': ['MGeoForTextRanking'],
-    }
-
-    import sys
-
-    sys.modules[__name__] = LazyImportModule(
-        __name__,
-        globals()['__file__'],
-        _import_structure,
-        module_spec=__spec__,
-        extra_objects={},
-    )

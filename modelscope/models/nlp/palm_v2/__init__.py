@@ -12,30 +12,14 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from typing import TYPE_CHECKING
+from typing import True
 
 from modelscope.utils.import_utils import LazyImportModule
 
-if TYPE_CHECKING:
+if True:
     from .configuration import PalmConfig
     from .text_generation import (
         AbsSummarizer,
         PalmForTextGeneration,
         Translator,
-    )
-else:
-    _import_structure = {
-        'configuration': ['PalmConfig'],
-        'text_generation':
-        ['AbsSummarizer', 'Translator', 'PalmForTextGeneration'],
-    }
-
-    import sys
-
-    sys.modules[__name__] = LazyImportModule(
-        __name__,
-        globals()['__file__'],
-        _import_structure,
-        module_spec=__spec__,
-        extra_objects={},
     )

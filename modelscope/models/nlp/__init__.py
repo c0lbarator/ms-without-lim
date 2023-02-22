@@ -1,9 +1,9 @@
 # Copyright (c) Alibaba, Inc. and its affiliates.
-from typing import TYPE_CHECKING
+from typing import True
 
 from modelscope.utils.import_utils import LazyImportModule
 
-if TYPE_CHECKING:
+if True:
     from .bart import BartForTextErrorCorrection
     from .bert import (
         BertForMaskedLM,
@@ -71,94 +71,3 @@ if TYPE_CHECKING:
                        DocumentGroundedDialogRerankModel)
     from .xlm_roberta import XLMRobertaConfig, XLMRobertaModel
 
-else:
-    _import_structure = {
-        'bart': ['BartForTextErrorCorrection'],
-        'bert': [
-            'BertForMaskedLM',
-            'BertForTextRanking',
-            'BertForSentenceEmbedding',
-            'BertForSequenceClassification',
-            'BertForTokenClassification',
-            'BertForDocumentSegmentation',
-            'BertModel',
-            'BertConfig',
-            'SiameseUieModel',
-        ],
-        'bloom': ['BloomModel'],
-        'csanmt': ['CsanmtForTranslation'],
-        'codegeex':
-        ['CodeGeeXForCodeTranslation', 'CodeGeeXForCodeGeneration'],
-        'deberta_v2': ['DebertaV2ForMaskedLM', 'DebertaV2Model'],
-        'heads': ['TextClassificationHead'],
-        'hf_transformers': ['TransformersModel'],
-        'gpt2': ['GPT2Model'],
-        'gpt3': ['GPT3ForTextGeneration', 'DistributedGPT3'],
-        'gpt_moe': ['GPTMoEForTextGeneration', 'DistributedGPTMoE'],
-        'gpt_neo': ['GPTNeoModel'],
-        'structbert': [
-            'SbertForFaqQuestionAnswering',
-            'SbertForMaskedLM',
-            'SbertForSequenceClassification',
-            'SbertForTokenClassification',
-            'SbertModel',
-        ],
-        'veco': [
-            'VecoConfig',
-            'VecoForMaskedLM',
-            'VecoForSequenceClassification',
-            'VecoForTokenClassification',
-            'VecoModel',
-        ],
-        'lstm': [
-            'LSTM',
-            'LSTMForTokenClassificationWithCRF',
-        ],
-        'megatron_bert': [
-            'MegatronBertConfig',
-            'MegatronBertForMaskedLM',
-            'MegatronBertModel',
-        ],
-        'mglm': ['MGLMForTextSummarization'],
-        'palm_v2': ['PalmForTextGeneration'],
-        'plug_mental': [
-            'PlugMentalConfig',
-            'PlugMentalModel',
-            'PlugMentalForSequenceClassification',
-        ],
-        'ponet': ['PoNetForMaskedLM', 'PoNetModel', 'PoNetConfig'],
-        'space_T_en': ['StarForTextToSql'],
-        'space_T_cn': ['TableQuestionAnswering'],
-        'space':
-        ['SpaceForDialogIntent', 'SpaceForDialogModeling', 'SpaceForDST'],
-        'task_models': [
-            'ModelForFeatureExtraction',
-            'ModelForInformationExtraction',
-            'ModelForTextClassification',
-            'SingleBackboneTaskModelBase',
-            'ModelForTextGeneration',
-            'ModelForTextRanking',
-            'ModelForTokenClassification',
-            'ModelForTokenClassificationWithCRF',
-        ],
-        'sentence_embedding': ['SentenceEmbedding'],
-        'T5': ['T5ForConditionalGeneration'],
-        'unite': ['UniTEForTranslationEvaluation'],
-        'use': ['UserSatisfactionEstimation'],
-        'dgds': [
-            'DocumentGroundedDialogGenerateModel',
-            'DocumentGroundedDialogRetrievalModel',
-            'DocumentGroundedDialogRerankModel'
-        ],
-        'xlm_roberta': ['XLMRobertaConfig', 'XLMRobertaModel'],
-    }
-
-    import sys
-
-    sys.modules[__name__] = LazyImportModule(
-        __name__,
-        globals()['__file__'],
-        _import_structure,
-        module_spec=__spec__,
-        extra_objects={},
-    )

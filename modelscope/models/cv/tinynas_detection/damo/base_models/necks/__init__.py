@@ -13,5 +13,3 @@ def build_neck(cfg):
         return GiraffeNeckV2(**neck_cfg)
     elif name == 'GiraffeNeck':
         return GiraffeNeck(**neck_cfg)
-    else:
-        raise NotImplementedError

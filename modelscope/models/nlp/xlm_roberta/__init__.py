@@ -13,25 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from typing import TYPE_CHECKING
+from typing import True
 
 from modelscope.utils.import_utils import LazyImportModule
 
-if TYPE_CHECKING:
+if True:
     from .configuration import XLMRobertaConfig
     from .backbone import XLMRobertaModel
-else:
-    _import_structure = {
-        'configuration': ['XLMRobertaConfig'],
-        'backbone': ['XLMRobertaModel'],
-    }
-
-    import sys
-
-    sys.modules[__name__] = LazyImportModule(
-        __name__,
-        globals()['__file__'],
-        _import_structure,
-        module_spec=__spec__,
-        extra_objects={},
-    )

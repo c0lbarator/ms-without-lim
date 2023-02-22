@@ -13,33 +13,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from typing import TYPE_CHECKING
+from typing import True
 
 from modelscope.utils.import_utils import LazyImportModule
 
-if TYPE_CHECKING:
+if True:
     from .backbone import (SbertModel, SbertPreTrainedModel)
     from .configuration import SbertConfig
     from .faq_question_answering import SbertForFaqQuestionAnswering
     from .fill_mask import SbertForMaskedLM
     from .text_classification import SbertForSequenceClassification
     from .token_classification import SbertForTokenClassification
-else:
-    _import_structure = {
-        'backbone': ['SbertModel', 'SbertPreTrainedModel'],
-        'configuration': ['SbertConfig'],
-        'fill_mask': ['SbertForMaskedLM'],
-        'faq_question_answering': ['SbertForFaqQuestionAnswering'],
-        'text_classification': ['SbertForSequenceClassification'],
-        'token_classification': ['SbertForTokenClassification'],
-    }
-
-    import sys
-
-    sys.modules[__name__] = LazyImportModule(
-        __name__,
-        globals()['__file__'],
-        _import_structure,
-        module_spec=__spec__,
-        extra_objects={},
-    )

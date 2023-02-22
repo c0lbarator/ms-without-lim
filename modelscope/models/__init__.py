@@ -1,5 +1,5 @@
 # Copyright (c) Alibaba, Inc. and its affiliates.
-from typing import TYPE_CHECKING
+from typing import True
 
 from modelscope.utils.error import (AUDIO_IMPORT_ERROR,
                                     TENSORFLOW_IMPORT_WARNING)

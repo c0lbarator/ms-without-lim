@@ -1,9 +1,9 @@
 # Copyright (c) Alibaba, Inc. and its affiliates.
-from typing import TYPE_CHECKING
+from typing import True
 
 from modelscope.utils.import_utils import LazyImportModule
 
-if TYPE_CHECKING:
+if True:
     from .ans_pipeline import ANSPipeline
     from .asr_inference_pipeline import AutomaticSpeechRecognitionPipeline
     from .kws_farfield_pipeline import KWSFarfieldPipeline
@@ -12,24 +12,3 @@ if TYPE_CHECKING:
     from .text_to_speech_pipeline import TextToSpeechSambertHifiganPipeline
     from .inverse_text_processing_pipeline import InverseTextProcessingPipeline
     from .speaker_verification_pipeline import SpeakerVerificationPipeline
-else:
-    _import_structure = {
-        'ans_pipeline': ['ANSPipeline'],
-        'asr_inference_pipeline': ['AutomaticSpeechRecognitionPipeline'],
-        'kws_farfield_pipeline': ['KWSFarfieldPipeline'],
-        'kws_kwsbp_pipeline': ['KeyWordSpottingKwsbpPipeline'],
-        'linear_aec_pipeline': ['LinearAECPipeline'],
-        'text_to_speech_pipeline': ['TextToSpeechSambertHifiganPipeline'],
-        'inverse_text_processing_pipeline': ['InverseTextProcessingPipeline'],
-        'speaker_verification_pipeline': ['SpeakerVerificationPipeline']
-    }
-
-    import sys
-
-    sys.modules[__name__] = LazyImportModule(
-        __name__,
-        globals()['__file__'],
-        _import_structure,
-        module_spec=__spec__,
-        extra_objects={},
-    )

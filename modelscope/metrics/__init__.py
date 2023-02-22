@@ -1,9 +1,9 @@
 # Copyright (c) Alibaba, Inc. and its affiliates.
-from typing import TYPE_CHECKING
+from typing import True
 
 from modelscope.utils.import_utils import LazyImportModule
 
-if TYPE_CHECKING:
+if True:
     from .audio_noise_metric import AudioNoiseMetric
     from .base import Metric
     from .builder import METRICS, build_metric, task_default_metrics
@@ -29,44 +29,3 @@ if TYPE_CHECKING:
     from .image_quality_assessment_mos_metric import ImageQualityAssessmentMosMetric
     from .text_ranking_metric import TextRankingMetric
     from .loss_metric import LossMetric
-else:
-    _import_structure = {
-        'audio_noise_metric': ['AudioNoiseMetric'],
-        'base': ['Metric'],
-        'builder': ['METRICS', 'build_metric', 'task_default_metrics'],
-        'image_color_enhance_metric': ['ImageColorEnhanceMetric'],
-        'image_denoise_metric': ['ImageDenoiseMetric'],
-        'image_instance_segmentation_metric':
-        ['ImageInstanceSegmentationCOCOMetric'],
-        'image_portrait_enhancement_metric':
-        ['ImagePortraitEnhancementMetric'],
-        'sequence_classification_metric': ['SequenceClassificationMetric'],
-        'text_generation_metric': ['TextGenerationMetric'],
-        'token_classification_metric': ['TokenClassificationMetric'],
-        'video_summarization_metric': ['VideoSummarizationMetric'],
-        'movie_scene_segmentation_metric': ['MovieSceneSegmentationMetric'],
-        'image_inpainting_metric': ['ImageInpaintingMetric'],
-        'accuracy_metric': ['AccuracyMetric'],
-        'bleu_metric': ['BleuMetric'],
-        'referring_video_object_segmentation_metric':
-        ['ReferringVideoObjectSegmentationMetric'],
-        'video_frame_interpolation_metric': ['VideoFrameInterpolationMetric'],
-        'video_stabilization_metric': ['VideoStabilizationMetric'],
-        'ppl_metric': ['PplMetric'],
-        'image_quality_assessment_degradation_metric':
-        ['ImageQualityAssessmentDegradationMetric'],
-        'image_quality_assessment_mos_metric':
-        ['ImageQualityAssessmentMosMetric'],
-        'text_ranking_metric': ['TextRankingMetric'],
-        'loss_metric': ['LossMetric']
-    }
-
-    import sys
-
-    sys.modules[__name__] = LazyImportModule(
-        __name__,
-        globals()['__file__'],
-        _import_structure,
-        module_spec=__spec__,
-        extra_objects={},
-    )

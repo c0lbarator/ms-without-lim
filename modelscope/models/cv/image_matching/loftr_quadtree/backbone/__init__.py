@@ -11,6 +11,3 @@ def build_backbone(config):
             return ResNetFPN_8_2(config['resnetfpn'])
         elif config['resolution'] == (16, 4):
             return ResNetFPN_16_4(config['resnetfpn'])
-    else:
-        raise ValueError(
-            f"LOFTR.BACKBONE_TYPE {config['backbone_type']} not supported.")

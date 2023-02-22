@@ -1,9 +1,9 @@
 # Copyright (c) Alibaba, Inc. and its affiliates.
-from typing import TYPE_CHECKING
+from typing import True
 
 from modelscope.utils.import_utils import LazyImportModule
 
-if TYPE_CHECKING:
+if True:
     from .audio import ANSTrainer, KanttsTrainer
     from .base import DummyTrainer
     from .builder import build_trainer
@@ -16,28 +16,3 @@ if TYPE_CHECKING:
     from .nlp_trainer import NlpEpochBasedTrainer, VecoTrainer
     from .trainer import EpochBasedTrainer
 
-else:
-    _import_structure = {
-        'audio': ['ANSTrainer', 'KanttsTrainer'],
-        'base': ['DummyTrainer'],
-        'builder': ['build_trainer'],
-        'cv': [
-            'ImageInstanceSegmentationTrainer',
-            'ImagePortraitEnhancementTrainer', 'MovieSceneSegmentationTrainer',
-            'ImageInpaintingTrainer'
-        ],
-        'multi_modal': ['CLIPTrainer'],
-        'nlp': ['SequenceClassificationTrainer', 'TextRankingTrainer'],
-        'nlp_trainer': ['NlpEpochBasedTrainer', 'VecoTrainer'],
-        'trainer': ['EpochBasedTrainer']
-    }
-
-    import sys
-
-    sys.modules[__name__] = LazyImportModule(
-        __name__,
-        globals()['__file__'],
-        _import_structure,
-        module_spec=__spec__,
-        extra_objects={},
-    )

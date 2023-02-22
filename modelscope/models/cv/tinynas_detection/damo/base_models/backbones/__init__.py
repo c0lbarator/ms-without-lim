@@ -16,5 +16,3 @@ def build_backbone(cfg):
         return load_tinynas_net_csp(backbone_cfg)
     elif name == 'CSPDarknet':
         return CSPDarknet(**backbone_cfg)
-    else:
-        print(f'{name} is not supported yet!')

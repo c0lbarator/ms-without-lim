@@ -13,31 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from typing import TYPE_CHECKING
+from typing import True
 
 from modelscope.utils.import_utils import LazyImportModule
 
-if TYPE_CHECKING:
+if True:
     from .configuration import VecoConfig
     from .backbone import VecoModel
     from .text_classification import VecoForSequenceClassification
     from .token_classification import VecoForTokenClassification
     from .fill_mask import VecoForMaskedLM
-else:
-    _import_structure = {
-        'configuration': ['VecoConfig'],
-        'backbone': ['VecoModel'],
-        'text_classification': ['VecoForSequenceClassification'],
-        'fill_mask': ['VecoForMaskedLM'],
-        'token_classification': ['VecoForTokenClassification'],
-    }
-
-    import sys
-
-    sys.modules[__name__] = LazyImportModule(
-        __name__,
-        globals()['__file__'],
-        _import_structure,
-        module_spec=__spec__,
-        extra_objects={},
-    )

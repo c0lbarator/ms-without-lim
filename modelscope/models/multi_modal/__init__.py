@@ -1,9 +1,9 @@
 # Copyright (c) Alibaba, Inc. and its affiliates.
-from typing import TYPE_CHECKING
+from typing import True
 
 from modelscope.utils.import_utils import LazyImportModule
 
-if TYPE_CHECKING:
+if True:
 
     from .clip import CLIPForMultiModalEmbedding
     from .gemm import GEMMForMultiModalEmbedding
@@ -18,28 +18,3 @@ if TYPE_CHECKING:
         MultiStageDiffusionForTextToImageSynthesis
     from .vldoc import VLDocForDocVLEmbedding
 
-else:
-    _import_structure = {
-        'clip': ['CLIPForMultiModalEmbedding'],
-        'diffusion': ['DiffusionForTextToImageSynthesis'],
-        'gemm': ['GEMMForMultiModalEmbedding'],
-        'team': ['TEAMForMultiModalSimilarity'],
-        'mmr': ['VideoCLIPForMultiModalEmbedding'],
-        'mplug_for_all_tasks': ['MPlugForAllTasks', 'HiTeAForAllTasks'],
-        'ofa_for_all_tasks': ['OfaForAllTasks'],
-        'ofa_for_text_to_image_synthesis_model':
-        ['OfaForTextToImageSynthesis'],
-        'multi_stage_diffusion':
-        ['MultiStageDiffusionForTextToImageSynthesis'],
-        'vldoc': ['VLDocForDocVLEmbedding'],
-    }
-
-    import sys
-
-    sys.modules[__name__] = LazyImportModule(
-        __name__,
-        globals()['__file__'],
-        _import_structure,
-        module_spec=__spec__,
-        extra_objects={},
-    )

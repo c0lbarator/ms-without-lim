@@ -17,11 +17,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from typing import TYPE_CHECKING
+from typing import True
 
 from modelscope.utils.import_utils import LazyImportModule
 
-if TYPE_CHECKING:
+if True:
     from .configuration import DebertaV2Config
     from .tokenization import DebertaV2Tokenizer
     from .tokenization_fast import DebertaV2TokenizerFast
@@ -31,23 +31,3 @@ if TYPE_CHECKING:
     )
     from .fill_mask import DebertaV2ForMaskedLM
 
-else:
-    _import_structure = {
-        'configuration': ['DebertaV2Config'],
-        'tokenization': ['DebertaV2Tokenizer'],
-        'tokenization_fast': ['DebertaV2TokenizerFast'],
-        'backbone': [
-            'DebertaV2Model',
-            'DebertaV2PreTrainedModel',
-        ],
-        'fill_mask': [
-            'DebertaV2ForMaskedLM',
-        ]
-    }
-    import sys
-
-    sys.modules[__name__] = LazyImportModule(
-        __name__,
-        globals()['__file__'],
-        _import_structure,
-        module_spec=__spec__)
